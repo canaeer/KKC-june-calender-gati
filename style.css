@@ -1,0 +1,99 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* --- スタンプ選択エリアのスタイル --- */
+#stamp-selector {
+    display: flex;
+    gap: 10px; /* スタンプ間のスペース */
+    margin-bottom: 20px;
+}
+
+.stamp-option {
+    width: 100px; /* スタンプ画像の表示サイズ */
+    height: 100px;
+    cursor: pointer;
+    border: 1px solid #ccc; /* 選択状態を示すための初期枠線 */
+    padding: 5px;
+    box-sizing: border-box; /* padding を含めてサイズ計算 */
+    transition: border 0.1s ease-in-out; /* 枠線がスムーズに変わるように */
+}
+
+.stamp-option.selected {
+    border: 3px solid #007bff; /* 選択中のスタイル（青い枠線） */
+}
+
+
+/* --- カレンダーとスタンプエリアのスタイル --- */
+#calendar-container {
+    position: relative; /* 子要素（スタンプエリア）を絶対配置するための基準 */
+    width: 1209px; /* ★★★ ご自身のカレンダー画像の幅に合わせて調整 ★★★ */
+    height: 2150px; /* ★★★ ご自身のカレンダー画像の高さに合わせて調整 ★★★ */
+    /* カレンダー画像の縦横比に合わせて調整してください */
+}
+
+#calendar-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stamp-area {
+    position: absolute; /* カレンダー画像の上に配置 */
+    width: 100px; /* スタンプの基準となるサイズ */
+    height: 100px; /* スタンプの基準となるサイズ */
+    /* border: 1px dashed #ccc; */ /* 開発中はわかりやすく枠線を表示。完成したらコメントアウトか削除 */
+    cursor: pointer; /* マウスカーソルをポインターにする */
+    overflow: hidden; /* スタンプがはみ出さないように */
+    /* display: flex; や flex-wrap 関連のスタイルは削除 */
+    /* justify-content: center; */
+    /* align-content: flex-start; */
+    /* gap: 5px; */
+}
+
+.stamp-area img {
+    position: absolute; /* 親要素 (.stamp-area) に対して絶対配置 */
+    width: 60px; /* スタンプのサイズ */
+    height: 60px; /* スタンプのサイズ */
+    object-fit: contain; /* スタンプ画像がはみ出さないように調整 */
+    /* topとleftはJavaScriptで設定するためCSSでは指定しない */
+    /* z-indexもJavaScriptで設定 */
+}
+
+/* --- 各スタンプエリアの正確な位置決め (ここが一番重要かつ手作業) --- */
+/* ★★★ ご自身のカレンダー画像に合わせて、topとleftの値を細かく調整してください ★★★ */
+#day-1 { top: 1475px; left: 220px; }
+#day-2 { top: 1475px; left: 330px; }
+#day-3 { top: 1475px; left: 440px; }
+#day-4 { top: 1475px; left: 550px; }
+#day-5 { top: 1475px; left: 660px; }
+#day-6 { top: 1475px; left: 770px; }
+#day-7 { top: 1475px; left: 880px; }
+#day-8 { top: 1575px; left: 220px; }
+#day-9 { top: 1575px; left: 330px; }
+#day-10 { top: 1575px; left: 440px; }
+#day-11 { top: 1575px; left: 550px; }
+#day-12 { top: 1575px; left: 660px; }
+#day-13 { top: 1575px; left: 770px; }
+#day-14 { top: 1575px; left: 880px; }
+#day-15 { top: 1675px; left: 220px; }
+#day-16 { top: 1675px; left: 330px; }
+#day-17 { top: 1675px; left: 440px; }
+#day-18 { top: 1675px; left: 550px; }
+#day-19 { top: 1675px; left: 660px; }
+#day-20 { top: 1675px; left: 770px; }
+#day-21 { top: 1675px; left: 880px; }
+#day-22 { top: 1775px; left: 220px; }
+#day-23 { top: 1775px; left: 330px; }
+#day-24 { top: 1775px; left: 440px; }
+#day-25 { top: 1775px; left: 550px; }
+#day-26 { top: 1775px; left: 660px; }
+#day-27 { top: 1775px; left: 770px; }
+#day-28 { top: 1775px; left: 880px; }
+#day-29 { top: 1875px; left: 220px; }
+#day-30 { top: 1875px; left: 330px; }
+#day-31 { top: 1875px; left: 440px; }
