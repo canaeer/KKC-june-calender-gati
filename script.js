@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displaySavedStamps() {
         stampAreas.forEach(area => {
             const dayId = area.id; 
-            const stampsForDay = savedStamps.hasOwnProperty(dayId) ? savedStamps[dayId] : [];
+            const stampsForDay = Array.isArray(savedStamps.hasOwnProperty[dayId]) ? savedStamps[dayId] : [];
 
             // 既存のスタンプ画像をすべて削除（重複表示を防ぐため）
             area.innerHTML = ''; 
