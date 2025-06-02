@@ -57,8 +57,8 @@ body {
 
 .stamp-area img {
     position: absolute; /* 親要素 (.stamp-area) に対して絶対配置 */
-    width: 60px; /* スタンプのサイズ */
-    height: 60px; /* スタンプのサイズ */
+    width: 90px; /* ★ここを例として90pxに変更しました★ */
+    height: 90px; /* ★ここを例として90pxに変更しました★ */
     object-fit: contain; /* スタンプ画像がはみ出さないように調整 */
     /* topとleftはJavaScriptで設定するためCSSでは指定しない */
     /* z-indexもJavaScriptで設定 */
