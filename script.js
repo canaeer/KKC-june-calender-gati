@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 各スタンプの重なり具合を調整するためのオフセット値
     const STAMP_OFFSET_PX = 5; 
-    const MAX_STAMPS_PER_DAY = 3; // 各日付に押せるスタンプの最大数
+    // const MAX_STAMPS_PER_DAY = 3; // 各日付に押せるスタンプの最大数 → 何回でも押せるようにするためコメントアウトまたは削除
 
     // localStorageから保存されたスタンプ情報を読み込む
     // 各日付には、スタンプの種類とオフセット情報を持つオブジェクトの配列を保存
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displaySavedStamps() {
         stampAreas.forEach(area => {
             const dayId = area.id; 
+            // stampsForDayが配列であることを確実にチェック
             const stampsForDay = Array.isArray(savedStamps[dayId]) ? savedStamps[dayId] : [];
 
             // 既存のスタンプ画像をすべて削除（重複表示を防ぐため）
@@ -69,10 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedStamp) { // スタンプが選択されている場合のみ処理を実行
                 const dayId = area.id;
                 // その日の現在のスタンプリストを取得、なければ新しい配列を初期化
-                const stampsForDay = savedStamps.hasOwnProperty(dayId) ? savedStamps[dayId] : [];
+                // ここもArray.isArrayでチェック
+                const stampsForDay = Array.isArray(savedStamps[dayId]) ? savedStamps[dayId] : [];
 
-                // 3回までしかスタンプを押せないように制限
-                if (stampsForDay.length < MAX_STAMPS_PER_DAY) {
+                // ★何回でもスタンプを押せるように制限を削除しました★
+                // if (stampsForDay.length < MAX_STAMPS_PER_DAY) { // このif文を削除
                     const currentStampCount = stampsForDay.length;
                     const offset = currentStampCount * STAMP_OFFSET_PX; // オフセットを計算
 
@@ -91,9 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     // localStorageに保存
                     localStorage.setItem('stamps', JSON.stringify(savedStamps));
                     console.log(`${dayId} に ${selectedStamp} を押しました！ (合計: ${stampsForDay.length}個, オフセット: ${offset}px)`);
-                } else {
-                    alert(`この日にはもう${MAX_STAMPS_PER_DAY}回スタンプが押されています！`);
-                }
+                // } else { // このelseブロックも削除
+                //     alert(`この日にはもう${MAX_STAMPS_PER_DAY}回スタンプが押されています！`);
+                // }
             } else {
                 // スタンプが選択されていない場合はアラートを表示
                 alert('押すスタンプを選択してください。');
